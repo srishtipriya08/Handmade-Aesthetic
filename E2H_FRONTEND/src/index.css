@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @theme {
+    /* --font-quicksand */
+    /* --color-typography : #967F71; */
+    /* --color-currency : #8E83A9; */
+
+@layer components{
+
+    .heading{
+        @apply pl-14 py-14;
+    }
+
+    /* .para_detail{
+        @apply text-[#7C7892] text-lg font-medium fontquicksand w-4/5 pt-10;
+    } */
+} 
+
+.fontquicksand{
+    font-family: 'Quicksand';
+}
+.topheader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Quicksand';
+}
+
+.footer_heading{
+    padding-bottom: 12px;
+    font-weight: 600;
+    font-family: 'Quicksand';
+}
+
+.footer_ul{
+    color: #8E83A9;
+    font-family: 'Quicksand';
+}
