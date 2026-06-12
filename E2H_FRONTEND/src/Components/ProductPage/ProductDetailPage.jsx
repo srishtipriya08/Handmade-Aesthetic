@@ -3,15 +3,21 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { Button, Typography, IconButton } from "@material-tailwind/react";
-import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
+import { Button, Typography, IconButton, Rating, Collapse, Card, CardBody } from "@material-tailwind/react";
+import { PlusIcon, MinusIcon, ArrowUpTrayIcon } from "@heroicons/react/24/outline";
 import { toast } from "react-toastify";
+import customerReview from "../../assets/CustomerReview.png";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
   const [quantity, setQuantity] = useState(1);
+
+  const [rated, setRated] = React.useState(4);
+  const [open, setOpen] = React.useState(false);
+ 
+  const toggleOpen = () => setOpen((cur) => !cur);
 
   // useEffect(() => {
   //   // Example: Save to localStorage or sync with an API
@@ -106,8 +112,13 @@ const ProductDetailPage = () => {
     <>
       <Header />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8  justify-center p-4">
-        <div className="flex w-full h-[400px] overflow-hidden justify-center">
-          <img src={`http://localhost:5000/uploads/${product.image}`} />
+        <div className="grid grid-rows-2 w-full overflow-hidden justify-items-center">
+          <img className="h-[300px] object-contain" src={`http://localhost:5000/uploads/${product.image}`} />
+          <div className="grid grid-cols-3 gap-2 ml-4 mt-2">
+            <img src={`http://localhost:5000/uploads/${product.image}`} />
+            <img src={`http://localhost:5000/uploads/${product.image}`} />
+            <img src={`http://localhost:5000/uploads/${product.image}`} />
+          </div>
 
           {/* <h1>{product.product_name}</h1>
 
@@ -146,15 +157,78 @@ const ProductDetailPage = () => {
               <PlusIcon className="h-4 w-4" />
             </IconButton>
           </div>
-          
+          <br/>
+          <div className="flex items-center gap-4">
           <Button className="bg-[#8E83A9] text-white px-4 py-2 rounded" onClick={addToCart}>
             Add to Cart
           </Button>
           <Button className="bg-[#8E83A9] text-white px-4 py-2 rounded">
             Buy Now
           </Button>
+          <Typography className="text-[#8E83A9] text-sm font-medium fontquicksand">
+            <IconButton variant="text">
+              <ArrowUpTrayIcon className="h-4 w-4 bg-transparent" />
+            </IconButton>
+            Share</Typography>
+          </div>
         </div>
       </div>
+
+{/* Customer Reviews */}
+
+    <div className="flex flex-col items-center p-4">
+      <Typography className="text-[#8E83A9] text-[30px] font-medium fontquicksand mb-2 p-2">
+        Customer Reviews
+      </Typography>
+      {/* <Typography className="text-[#8E83A9] font-medium fontquicksand mt-4 p-4"> */}
+        
+      <Rating value={4} onChange={(value) => setRated(value)} readonly/>
+      <Typography color="blue-gray" className="font-medium text-blue-gray-500 p-2">
+        ({rated}.7) Based on 134 Reviews
+      </Typography>
+      {/* </Typography> */}
+      <div className="w-[70%]">
+      <div className="flex justify-center p-4">
+      <button onClick={toggleOpen} className="bg-[#8E83A9] text-white px-4 py-2">
+        Write a Review
+      </button></div>
+      <Collapse open={open}>
+        <Card className="my-4 mx-auto">
+          <CardBody>
+            <Typography className="text-[#8E83A9] text-md font-small fontquicksand mt-4">
+              Rating <br/>
+              <Rating/>
+            </Typography>
+            <Typography className="text-[#8E83A9] text-md font-small fontquicksand mt-4">
+              Display Name <input type="text" className="border-2 w-full p-2"/>
+            </Typography>
+            <Typography className="text-[#8E83A9] text-md font-small fontquicksand mt-4">
+              Review Content <textarea className="border-2 w-full p-2" rows={4}/>
+            </Typography>
+          </CardBody>
+        </Card>
+      </Collapse>
+      </div>
+    </div>
+
+    <div className="flex flex-row items-center justify-evenly mx-4 p-4">
+          <div className=" w-[30%]">
+            <Typography className="text-[#8E83A9]  font-medium fontquicksand mb-2">
+              Name
+            </Typography>
+            <Typography className="text-[#8E83A9]  font-medium fontquicksand mt-4">
+              Rating
+            </Typography>
+            <Typography className="text-[#8E83A9] font-medium fontquicksand mt-4">
+              Review Content
+            </Typography>
+            <hr/>
+          </div>
+
+          <div>
+            <img src={customerReview} className="w-full h-full object-contain"/>
+          </div>
+    </div>
       <Footer />
     </>
   );

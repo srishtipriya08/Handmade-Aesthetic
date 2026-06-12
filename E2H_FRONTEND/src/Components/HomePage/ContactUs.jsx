@@ -1,10 +1,6 @@
 import React from "react";
 import { Button, Input, Textarea, Typography } from "@material-tailwind/react";
-import {
-  EnvelopeIcon,
-  MapPinIcon,
-  PhoneIcon,
-} from "@heroicons/react/24/solid";
+import { EnvelopeIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/24/solid";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
@@ -70,17 +66,16 @@ const ContactUs = () => {
                   }}
                 />
               </div>
-              <div >
+              <div>
                 <Typography
                   variant="small"
                   color="blue-gray"
                   className="mb-2 text-left font-medium fontquicksand"
                 >
-                Contact Number
+                  Contact Number
                 </Typography>
                 <Input
                   maxLength={10}
-                  
                   pattern="^\+\d{1,3}\s\d{1,4}-\d{1,4}-\d{4}$"
                   className="appearance-none !border-t-blue-gray-200 placeholder:text-blue-gray-300 placeholder:opacity-100 focus:!border-t-gray-900 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                   labelProps={{
@@ -113,41 +108,57 @@ const ContactUs = () => {
                 Send message
               </Button>
             </form>
-            
+
             <div className="bg-[#D9D9D9]/[25%] text-[#8E83A9] w-4/6 ">
-            <div className="m-10">
-              <Typography className="text-left text-xl font-semibold fontquicksand pb-10">Get in Touch with us</Typography>
+              <div className="m-10">
+                <Typography className="text-left text-xl font-semibold fontquicksand pb-10">
+                  Get in Touch with us
+                </Typography>
                 <div className="flex gap-3 items-center">
                   <MapPinIcon className="h-10 w-10 text-[#8E83A9]" />
                   <div>
-                    <Typography className="font-medium text-xl fontquicksand">Address</Typography>
+                    <Typography className="font-medium text-xl fontquicksand">
+                      Address
+                    </Typography>
                   </div>
                 </div>
-                <Typography className="pl-14 font-medium text-md text-left fontquicksand text-[#8E83A9]/[60%]">302, Harmu Road, Ranchi, Jharkhand</Typography>
-            </div>
-            <div className="m-10">
+                <Typography className="pl-14 font-medium text-md text-left fontquicksand text-[#8E83A9]/[60%]">
+                  302, Harmu Road, Ranchi, Jharkhand
+                </Typography>
+              </div>
+              <div className="m-10">
                 <div className="flex gap-3 items-center">
                   <PhoneIcon className="h-10 w-10 text-[#8E83A9]" />
                   <div>
-                    <Typography className="font-medium text-xl fontquicksand">Phone Number</Typography>
+                    <Typography className="font-medium text-xl fontquicksand">
+                      Phone Number
+                    </Typography>
                   </div>
                 </div>
-                <Typography className="pl-14 font-medium text-md text-left fontquicksand text-[#8E83A9]/[60%]">+91-7254983575</Typography>
-            </div>
-            <div className="m-10">
+                <Typography className="pl-14 font-medium text-md text-left fontquicksand text-[#8E83A9]/[60%]">
+                  +91-7254983575
+                </Typography>
+              </div>
+              <div className="m-10">
                 <div className="flex gap-3 items-center">
                   <EnvelopeIcon className="h-10 w-10 text-[#8E83A9]" />
                   <div>
-                    <Typography className="font-medium text-xl fontquicksand">Email</Typography>
+                    <Typography className="font-medium text-xl fontquicksand">
+                      Email
+                    </Typography>
                   </div>
                 </div>
-               <Typography className="pl-14 font-medium text-md text-left hover:underline fontquicksand text-[#8E83A9]/[60%]"><a href="mailto:handmadeaesthetics@gmail.com">handmadeaesthetics@gmail.com</a></Typography>
-            </div>
+                <Typography className="pl-14 font-medium text-md text-left hover:underline fontquicksand text-[#8E83A9]/[60%]">
+                  <a href="mailto:handmadeaesthetics@gmail.com">
+                    handmadeaesthetics@gmail.com
+                  </a>
+                </Typography>
+              </div>
             </div>
           </div>
 
           <div className="mt-14">
-          <img
+            <img
               src="./src/assets/map.png"
               alt="map"
               className="w-full h-full lg:max-h-[510px]"
